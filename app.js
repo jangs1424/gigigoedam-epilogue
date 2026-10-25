@@ -1,10 +1,4 @@
 "use strict";
-const socialURLs = { undefined: "", goma: "" };
-document.querySelectorAll("[data-social]").forEach(button=>{
-  const url=socialURLs[button.dataset.social];
-  if(url){const link=document.createElement("a");link.className=button.className;link.href=url;link.target="_blank";link.rel="noopener noreferrer";link.innerHTML=button.innerHTML;button.replaceWith(link);}
-  else{button.addEventListener("click",()=>{document.querySelector(".link-status").textContent="인스타그램 계정 연결을 준비하고 있습니다.";});button.querySelector("small").textContent+=" · 연결 준비 중";}
-});
 const clues=[...document.querySelectorAll(".clue")];
 const expand=document.querySelector("#expand-all");
 function syncExpand(){if(!expand)return;const visible=clues.filter(c=>!c.hidden);const all=visible.length>0&&visible.every(c=>c.open);expand.setAttribute("aria-expanded",String(all));expand.textContent=all?"모두 접기":"모두 펼치기";}
