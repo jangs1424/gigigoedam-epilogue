@@ -9,8 +9,5 @@ document.querySelectorAll("[data-filter]").forEach(button=>button.addEventListen
 }));
 expand?.addEventListener("click",()=>{const open=expand.getAttribute("aria-expanded")!=="true";clues.filter(c=>!c.hidden).forEach(c=>c.open=open);syncExpand();});
 clues.forEach(c=>c.addEventListener("toggle",syncExpand));
-document.querySelectorAll(".reveal-button").forEach(button=>button.addEventListener("click",()=>{
- const box=button.closest("[data-acrostic]");const shown=box.classList.toggle("revealed");button.setAttribute("aria-pressed",String(shown));button.textContent=shown?"첫 글자 강조 숨기기":"첫 글자 강조하기";
-}));
 function openHash(){const target=document.getElementById(location.hash.slice(1));if(target?.matches("details")){target.hidden=false;target.open=true;}}
 window.addEventListener("hashchange",openHash);openHash();
